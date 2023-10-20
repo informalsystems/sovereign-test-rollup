@@ -1,5 +1,5 @@
 [package]
-name = "template-stf"
+name = "stf-starter"
 version = { workspace = true }
 edition = { workspace = true }
 resolver = "2"
@@ -9,23 +9,23 @@ homepage = "sovereign.xyz"
 publish = false
 
 [dependencies]
-sov-modules-api 			= { version = "0.2.0" }
-sov-state 					= { version = "0.2.0" }
-sov-accounts 				= { version = "0.2.0" }
-sov-bank 					= { version = "0.2.0" }
-sov-sequencer-registry 		= { version = "0.2.0" }
-sov-modules-stf-template 	= { version = "0.2.0" }
-sov-stf-runner 				= { version = "0.2.0" }
-sov-sequencer 				= { version = "0.2.0", optional = true }
-sov-rollup-interface 		= { version = "0.2.0" }
+sov-modules-api = { version = "0.2.0" }
+sov-state = { version = "0.2.0" }
+sov-accounts = { version = "0.2.0" }
+sov-bank = { version = "0.2.0" }
+sov-sequencer-registry = { version = "0.2.0" }
+sov-modules-stf-template = { version = "0.2.0" }
+sov-stf-runner = { version = "0.2.0" }
+sov-sequencer = { version = "0.2.0", optional = true }
+sov-rollup-interface = { version = "0.2.0" }
+tracing = "0.1.37"
 
-tracing     = { version = "0.1.37" }
-serde 		= { version = "1.0.188", features = ["derive", "rc"] }
-borsh 		= { version = "0.10.3", features = ["rc", "bytes"] }
-anyhow      = { version = "1.0.68" }
-serde_json 	= { version = "1.0", optional = true }
-jsonrpsee 	= { version = "0.20.1", features = ["jsonrpsee-types"], optional = true }
-clap        = { version = "4.2.7", features = ["derive"], optional = true }
+serde = { version = "1.0.188", features = ["derive", "rc"] }
+serde_json = { version = "1.0", optional = true }
+jsonrpsee = { version = "0.20.1", features = ["jsonrpsee-types"], optional = true }
+borsh = { version = "0.10.3", features = ["rc", "bytes"] }
+anyhow = "1.0.68"
+clap = { version = "4.2.7", features = ["derive"], optional = true }
 
 [features]
 default = []

@@ -3,8 +3,9 @@
 resolver = "2"
 
 members = [
-    "crates/test-rollup",
-    "crates/risc0-prover"
+    "crates/rollup",
+    "crates/provers/risc0",
+    "crates/stf",
 ]
 
 [workspace.package]
@@ -18,21 +19,13 @@ repository = "https://github.com/informalsystems/sovereign-test-rollup"
 rust-version = "1.73"
 
 [workspace.dependencies]
-sov-modules-api             = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly", features = ["native"] }
-sov-state                   = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
-sov-accounts                = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly", features = ["native"]}
-sov-bank                    = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly", features = ["native"] }
-sov-sequencer-registry      = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly", features = ["native"] }
-sov-modules-stf-template    = {git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly", features = ["native"] }
-sov-stf-runner              = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly", features = ["native"] }
-sov-sequencer               = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly", features = ["native"] }
-sov-rollup-interface        = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly", features = ["native"] }
 
 [patch.crates-io]
 sov-modules-api             = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 sov-state                   = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 sov-accounts                = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 sov-bank                    = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
+sov-ledger-rpc              = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 sov-sequencer-registry      = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 sov-modules-stf-template    = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 sov-stf-runner              = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
@@ -42,5 +35,5 @@ sov-rollup-interface        = { git = "https://github.com/Sovereign-Labs/soverei
 sov-risc0-adapter           = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 
 
-template-risc0 = { path = "./crates/risc0-prover" }
-template-stf = { path = "./crates/stf" }
+risc0-starter = { path = "./crates/provers/risc0" }
+stf-starter = { path = "./crates/stf" }

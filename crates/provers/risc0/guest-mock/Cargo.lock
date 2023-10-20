@@ -105,7 +105,7 @@ checksum = "4114279215a005bc675e386011e594e1d9b800918cea18fcadadcce864a2046b"
 dependencies = [
  "borsh-derive",
  "bytes",
- "hashbrown 0.13.2",
+ "hashbrown",
 ]
 
 [[package]]
@@ -282,6 +282,7 @@ version = "2.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "60f6d271ca33075c88028be6f04d502853d63a5ece419d269c15315d4fc1cf1d"
 dependencies = [
+ "serde",
  "signature",
 ]
 
@@ -293,6 +294,7 @@ checksum = "7277392b266383ef8396db7fdeb1e77b6c52fed775f5df15bb24f35b72156980"
 dependencies = [
  "curve25519-dalek",
  "ed25519",
+ "serde",
  "sha2",
 ]
 
@@ -307,12 +309,6 @@ name = "elf"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e2b183d6ce6ca4cf30e3db37abf5b52568b5f9015c97d9fbdd7026aa5dcdd758"
-
-[[package]]
-name = "equivalent"
-version = "1.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5"
 
 [[package]]
 name = "errno"
@@ -369,6 +365,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "guest-mock-starter"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "risc0-zkvm",
+ "risc0-zkvm-platform",
+ "sov-risc0-adapter",
+ "sov-rollup-interface",
+ "stf-starter",
+]
+
+[[package]]
 name = "hashbrown"
 version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -376,12 +384,6 @@ checksum = "43a3c133739dddd0d2990f9a4bdf8eb4b21ef50e4851ca85ab661199821d510e"
 dependencies = [
  "ahash",
 ]
-
-[[package]]
-name = "hashbrown"
-version = "0.14.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f93e7192158dbcda357bdec5fb5788eebf8bbac027f3f33e719d29135ae84156"
 
 [[package]]
 name = "hex"
@@ -407,16 +409,6 @@ dependencies = [
  "serde",
  "sha2",
  "sha3",
-]
-
-[[package]]
-name = "indexmap"
-version = "2.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8adf3ddd720272c6ea8bf59463c04e0f93d0bbf7c5439b691bca2987e0270897"
-dependencies = [
- "equivalent",
- "hashbrown 0.14.2",
 ]
 
 [[package]]
@@ -446,14 +438,14 @@ checksum = "af150ab688ff2122fcef229be89cb50dd66af9e01a4ff320cc137eecc9bacc38"
 
 [[package]]
 name = "jmt"
-version = "0.7.0"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9e49c5d2c13e15f77f22cee3df3dc822b46051b217112035d72687cb57a9cbde"
+checksum = "23f1cb339f7d5288603665c0ccbef7ad33a782ced36e18b6b207f175479eb3b7"
 dependencies = [
  "anyhow",
  "borsh",
  "digest",
- "hashbrown 0.13.2",
+ "hashbrown",
  "hex",
  "ics23",
  "itertools",
@@ -498,12 +490,6 @@ name = "log"
 version = "0.4.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
-
-[[package]]
-name = "memchr"
-version = "2.6.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f665ee40bc4a3c5590afb1e9677db74a508659dfd71e126420da8274909a0167"
 
 [[package]]
 name = "mirai-annotations"
@@ -572,7 +558,7 @@ version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1d6ea3c4595b96363c13943497db34af4460fb474a95c43f4446ad341b8c9785"
 dependencies = [
- "toml 0.5.11",
+ "toml",
 ]
 
 [[package]]
@@ -831,15 +817,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "serde_spanned"
-version = "0.6.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "96426c9936fd7a0124915f9185ea1d20aa9445cc9821142f0a73bc9207a2e186"
-dependencies = [
- "serde",
-]
-
-[[package]]
 name = "sha2"
 version = "0.10.6"
 source = "git+https://github.com/risc0/RustCrypto-hashes?tag=sha2/v0.10.6-risc0#e75cafd9f55da196061f6fadf8bc8a86778192b7"
@@ -868,11 +845,10 @@ checksum = "5e1788eed21689f9cf370582dfc467ef36ed9c707f073528ddafa8d83e3b8500"
 [[package]]
 name = "sov-accounts"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0cb875c2f471c555276a6c6ff0d60b12279d7f8b34f7d4fee421d3ab9d001546"
 dependencies = [
  "anyhow",
  "borsh",
+ "serde",
  "sov-modules-api",
  "sov-state",
  "thiserror",
@@ -881,12 +857,10 @@ dependencies = [
 [[package]]
 name = "sov-bank"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "65ad2cf68cdb16d1a93aeeb4363613fb8b4502a2329d5528b27cca64c79adb68"
 dependencies = [
  "anyhow",
  "borsh",
- "hex",
+ "serde",
  "sov-modules-api",
  "sov-rollup-interface",
  "sov-state",
@@ -896,8 +870,6 @@ dependencies = [
 [[package]]
 name = "sov-first-read-last-write-cache"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ccbe7af768e77f20c7b06bf255a8e911f36c08ebb45ea8cb442c3309e1396e8d"
 dependencies = [
  "thiserror",
 ]
@@ -905,16 +877,17 @@ dependencies = [
 [[package]]
 name = "sov-modules-api"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6116df4b16a1ce8f9c8398741e731ec8b42b2f477a3ff333a9908935b2326807"
 dependencies = [
  "anyhow",
  "bech32",
  "borsh",
  "derive_more",
  "ed25519-dalek",
+ "hex",
+ "jmt",
  "serde",
  "sha2",
+ "sov-first-read-last-write-cache",
  "sov-modules-macros",
  "sov-rollup-interface",
  "sov-state",
@@ -924,23 +897,19 @@ dependencies = [
 [[package]]
 name = "sov-modules-macros"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "27dcdc93da4b3a8d682382407e88478d1b4ccb6dbbd5881ed6263f5bb2045ef2"
 dependencies = [
  "anyhow",
  "borsh",
  "proc-macro2",
  "quote",
  "schemars",
+ "serde_json",
  "syn 1.0.109",
- "toml 0.7.8",
 ]
 
 [[package]]
 name = "sov-modules-stf-template"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fe59e913073eee292e984e0c2aede85d4e29351e0aea5dbfcb8e706b597a457d"
 dependencies = [
  "anyhow",
  "borsh",
@@ -957,7 +926,6 @@ dependencies = [
 [[package]]
 name = "sov-risc0-adapter"
 version = "0.2.0"
-source = "git+https://github.com/Sovereign-Labs/sovereign-sdk.git?branch=nightly#08e842fc9865461375ddf1b4334f7c4411613c49"
 dependencies = [
  "anyhow",
  "bincode",
@@ -972,7 +940,6 @@ dependencies = [
 [[package]]
 name = "sov-rollup-interface"
 version = "0.2.0"
-source = "git+https://github.com/Sovereign-Labs/sovereign-sdk.git?branch=nightly#08e842fc9865461375ddf1b4334f7c4411613c49"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -989,11 +956,10 @@ dependencies = [
 [[package]]
 name = "sov-sequencer-registry"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9e8be315b33b10ba0fb84aa9c2ac234a3a13e211e8d1e33cf643002677b57e3"
 dependencies = [
  "anyhow",
  "borsh",
+ "serde",
  "sov-bank",
  "sov-modules-api",
  "sov-state",
@@ -1002,8 +968,6 @@ dependencies = [
 [[package]]
 name = "sov-state"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6550ad2a26abe14d4f6f96f2d4afa8c3c1b88d3af60b1f0759a4fd61002af8c7"
 dependencies = [
  "anyhow",
  "bcs",
@@ -1021,7 +985,6 @@ dependencies = [
 [[package]]
 name = "sov-stf-runner"
 version = "0.2.0"
-source = "git+https://github.com/Sovereign-Labs/sovereign-sdk.git?branch=nightly#08e842fc9865461375ddf1b4334f7c4411613c49"
 dependencies = [
  "anyhow",
  "borsh",
@@ -1034,10 +997,27 @@ dependencies = [
 [[package]]
 name = "sov-zk-cycle-utils"
 version = "0.2.0"
-source = "git+https://github.com/Sovereign-Labs/sovereign-sdk.git?branch=nightly#08e842fc9865461375ddf1b4334f7c4411613c49"
 dependencies = [
  "risc0-zkvm",
  "risc0-zkvm-platform",
+]
+
+[[package]]
+name = "stf-starter"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "borsh",
+ "serde",
+ "sov-accounts",
+ "sov-bank",
+ "sov-modules-api",
+ "sov-modules-stf-template",
+ "sov-rollup-interface",
+ "sov-sequencer-registry",
+ "sov-state",
+ "sov-stf-runner",
+ "tracing",
 ]
 
 [[package]]
@@ -1082,36 +1062,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "template-prover-guest-mock"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "risc0-zkvm",
- "risc0-zkvm-platform",
- "sov-risc0-adapter",
- "sov-rollup-interface",
- "template-stf",
-]
-
-[[package]]
-name = "template-stf"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "borsh",
- "serde",
- "sov-accounts",
- "sov-bank",
- "sov-modules-api",
- "sov-modules-stf-template",
- "sov-rollup-interface",
- "sov-sequencer-registry",
- "sov-state",
- "sov-stf-runner",
- "tracing",
-]
-
-[[package]]
 name = "thiserror"
 version = "1.0.48"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1138,40 +1088,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f4f7f0dd8d50a853a531c426359045b1998f04219d88799810762cd4ad314234"
 dependencies = [
  "serde",
-]
-
-[[package]]
-name = "toml"
-version = "0.7.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dd79e69d3b627db300ff956027cc6c3798cef26d22526befdfcd12feeb6d2257"
-dependencies = [
- "serde",
- "serde_spanned",
- "toml_datetime",
- "toml_edit",
-]
-
-[[package]]
-name = "toml_datetime"
-version = "0.6.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7cda73e2f1397b1262d6dfdcef8aafae14d1de7748d66822d3bfeeb6d03e5e4b"
-dependencies = [
- "serde",
-]
-
-[[package]]
-name = "toml_edit"
-version = "0.19.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1b5bb770da30e5cbfde35a2d7b9b8a2c4b8ef89548a7a6aeab5c9a576e3e7421"
-dependencies = [
- "indexmap",
- "serde",
- "serde_spanned",
- "toml_datetime",
- "winnow",
 ]
 
 [[package]]
@@ -1295,15 +1211,6 @@ name = "windows_x86_64_msvc"
 version = "0.48.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed94fce61571a4006852b7389a063ab983c02eb1bb37b47f8272ce92d06d9538"
-
-[[package]]
-name = "winnow"
-version = "0.5.17"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a3b801d0e0a6726477cc207f60162da452f3a95adb368399bef20a946e06f65c"
-dependencies = [
- "memchr",
-]
 
 [[patch.unused]]
 name = "cc"

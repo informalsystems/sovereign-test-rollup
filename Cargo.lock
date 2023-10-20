@@ -2503,6 +2503,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "risc0-starter"
+version = "0.2.0"
+dependencies = [
+ "risc0-build",
+]
+
+[[package]]
 name = "risc0-sys"
 version = "0.18.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3034,6 +3041,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "sov-ledger-rpc"
+version = "0.2.0"
+source = "git+https://github.com/Sovereign-Labs/sovereign-sdk.git?branch=nightly#08e842fc9865461375ddf1b4334f7c4411613c49"
+dependencies = [
+ "anyhow",
+ "futures",
+ "jsonrpsee",
+ "serde",
+ "sov-modules-api",
+ "sov-rollup-interface",
+]
+
+[[package]]
 name = "sov-modules-api"
 version = "0.2.0"
 source = "git+https://github.com/Sovereign-Labs/sovereign-sdk.git?branch=nightly#08e842fc9865461375ddf1b4334f7c4411613c49"
@@ -3220,6 +3240,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "sovereign-test-rollup"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "borsh",
+ "clap",
+ "jsonrpsee",
+ "risc0-starter",
+ "serde",
+ "serde_json",
+ "sov-accounts",
+ "sov-bank",
+ "sov-db",
+ "sov-ledger-rpc",
+ "sov-modules-api",
+ "sov-modules-stf-template",
+ "sov-risc0-adapter",
+ "sov-rollup-interface",
+ "sov-sequencer",
+ "sov-sequencer-registry",
+ "sov-state",
+ "sov-stf-runner",
+ "stf-starter",
+ "tempfile",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "spin"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3246,6 +3296,28 @@ name = "static_assertions"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
+
+[[package]]
+name = "stf-starter"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "borsh",
+ "clap",
+ "jsonrpsee",
+ "serde",
+ "serde_json",
+ "sov-accounts",
+ "sov-bank",
+ "sov-modules-api",
+ "sov-modules-stf-template",
+ "sov-rollup-interface",
+ "sov-sequencer",
+ "sov-sequencer-registry",
+ "sov-state",
+ "sov-stf-runner",
+ "tracing",
+]
 
 [[package]]
 name = "strsim"
@@ -3319,64 +3391,6 @@ dependencies = [
  "redox_syscall 0.3.5",
  "rustix",
  "windows-sys",
-]
-
-[[package]]
-name = "template-risc0"
-version = "0.2.0"
-dependencies = [
- "risc0-build",
-]
-
-[[package]]
-name = "template-stf"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "borsh",
- "clap",
- "jsonrpsee",
- "serde",
- "serde_json",
- "sov-accounts",
- "sov-bank",
- "sov-modules-api",
- "sov-modules-stf-template",
- "sov-rollup-interface",
- "sov-sequencer",
- "sov-sequencer-registry",
- "sov-state",
- "sov-stf-runner",
- "tracing",
-]
-
-[[package]]
-name = "test-rollup"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "borsh",
- "clap",
- "jsonrpsee",
- "serde",
- "serde_json",
- "sov-accounts",
- "sov-bank",
- "sov-db",
- "sov-modules-api",
- "sov-modules-stf-template",
- "sov-risc0-adapter",
- "sov-rollup-interface",
- "sov-sequencer",
- "sov-sequencer-registry",
- "sov-state",
- "sov-stf-runner",
- "tempfile",
- "template-risc0",
- "template-stf",
- "tokio",
- "tracing",
- "tracing-subscriber",
 ]
 
 [[package]]
@@ -3991,3 +4005,8 @@ dependencies = [
  "cc",
  "pkg-config",
 ]
+
+[[patch.unused]]
+name = "cc"
+version = "1.0.79"
+source = "git+https://github.com/rust-lang/cc-rs?rev=e5bbdfa#e5bbdfa1fa468c028cb38fee6c35a3cf2e5a2736"
