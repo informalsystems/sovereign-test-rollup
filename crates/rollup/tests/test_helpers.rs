@@ -5,8 +5,8 @@ use sov_rollup_interface::mocks::{
     MockAddress, MockDaConfig, MockDaService, MOCK_SEQUENCER_DA_ADDRESS,
 };
 use sov_rollup_interface::zk::ZkvmHost;
-use sov_rollup_starter::rollup::Rollup;
 use sov_stf_runner::{RollupConfig, RpcConfig, RunnerConfig, StorageConfig};
+use sovereign_test_rollup::rollup::Rollup;
 use stf_starter::{get_genesis_config, GenesisPaths};
 use tokio::sync::oneshot;
 
