@@ -33,6 +33,7 @@ sov-db                      = { git = "https://github.com/Sovereign-Labs/soverei
 sov-sequencer               = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 sov-rollup-interface        = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 sov-risc0-adapter           = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
+sov-first-read-last-write-cache  = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", branch = "nightly" }
 
 
 risc0-starter = { path = "./crates/provers/risc0" }

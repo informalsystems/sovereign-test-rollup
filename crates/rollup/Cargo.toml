@@ -10,20 +10,19 @@ publish.workspace = true
 repository.workspace = true
 rust-version.workspace = true
 
-
 [dependencies]
-sov-modules-api = { version = "0.2.0", features = ["native"] }
-sov-state = { version = "0.2.0" }
-sov-accounts = { version = "0.2.0", features = ["native"] }
-sov-bank = { version = "0.2.0", features = ["native"] }
-sov-ledger-rpc = { version = "0.2.0", features = ["server"] }
-sov-sequencer-registry = { version = "0.2.0", features = ["native"] }
-sov-modules-stf-template = { version = "0.2.0", features = ["native"] }
-sov-stf-runner = { version = "0.2.0", features = ["native"] }
-sov-db = { version = "0.2.0" }
-sov-sequencer = { version = "0.2.0" }
-sov-rollup-interface = { version = "0.2.0", features = ["mocks"] }
-sov-risc0-adapter = { version = "0.2.0", features = ["native"] }
+sov-modules-api             = { version = "0.2.0", features = ["native"] }
+sov-state                   = { version = "0.2.0" }
+sov-accounts                = { version = "0.2.0", features = ["native"] }
+sov-bank                    = { version = "0.2.0", features = ["native"] }
+sov-ledger-rpc              = { version = "0.2.0", features = ["server"] }
+sov-sequencer-registry      = { version = "0.2.0", features = ["native"] }
+sov-modules-stf-template    = { version = "0.2.0", features = ["native"] }
+sov-stf-runner              = { version = "0.2.0", features = ["native"] }
+sov-db                      = { version = "0.2.0" }
+sov-sequencer               = { version = "0.2.0" }
+sov-rollup-interface        = { version = "0.2.0", features = ["mocks"] }
+sov-risc0-adapter           = { version = "0.2.0", features = ["native"] }
 
 risc0-starter = { version = "0.2.0" }
 stf-starter = { version = "0.2.0" , features = ["native"] }
